@@ -75,6 +75,9 @@ public class UserJavaConfiguration {
         public Map<String, Object> producerConfigs() {
             Map<String, Object> props = new HashMap<>();
             props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "39.108.169.64:9092");
+            // 默认就是这个，可以不配置，如果要自定义就必须配置。
+            props.put(ProducerConfig.PARTITIONER_CLASS_CONFIG, "org.apache.kafka.clients.producer.internals.DefaultPartitioner");
+
             //...
             return props;
         }
